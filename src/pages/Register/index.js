@@ -11,7 +11,7 @@ import LogoImg from '../../assets/logo.svg';
 export default function Register(){
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [whatsap, setWhatsap] = useState('');
+  const [whatsapp, setWhatsap] = useState('');
   const [city, setCity] = useState('');
   const [uf, setUf] = useState('');
 
@@ -22,7 +22,7 @@ export default function Register(){
     const data = {
       name,
        email,
-       whatsap, 
+       whatsapp, 
        city, 
        uf
     }    
@@ -51,7 +51,7 @@ export default function Register(){
 
         <Link className="back-link" to="/">
         <FiArrowLeft  size={16} color="#E02041"/>
-        Não tenho cadastro</Link>
+        Já tenho cadastro</Link>
         </section>
         <form onSubmit={handleRegister}>
           <input placeholder="Nome da ONG"
@@ -62,8 +62,8 @@ export default function Register(){
            value={email} 
            onChange={e => setEmail(e.target.value)}
           />
-          <input placeholder="whatsap"
-          value={whatsap} 
+          <input placeholder="whatsapp"
+          value={whatsapp} 
           onChange={e => setWhatsap(e.target.value)}
           />
 
