@@ -36,16 +36,16 @@ npm run start
 ## Frontend - Interfaces
 
 ### 1. Registro de Nova Ong
-<img src='/images/register.gif' width='600px'>
+<img src='/images/register.gif' width='800px'>
 
 ### 2. Logon
-<img src='/images/login.gif' width='600px'>
+<img src='/images/login.gif' width='800px'>
 
 ### 4. Cadastro de Casos
-<img src='/images/incident.gif' width='600px'>
+<img src='/images/incident.gif' width='800px'>
 
 ### 3. Consulta de casos
-<img src='/images/profile.gif' width='600px'>
+<img src='/images/profile.gif' width='800px'>
 
 ## Mobile - Acesse a versão mobile
 [https://github.com/irailtonreis/mobile-be-te-hero](https://github.com/irailtonreis/mobile-be-te-hero)

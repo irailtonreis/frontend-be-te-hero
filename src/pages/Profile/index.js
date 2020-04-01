@@ -49,7 +49,7 @@ function Profile(){
   }
   return(
     
-    <div className="div profile-container">
+    <div className="profile-container">
       <header>
       <img src={LogoImg}  alt="Be The Hero"/>
       <span>Bem vinda, {ongName}</span>
@@ -73,7 +73,7 @@ function Profile(){
             <p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL' }).format(incident.value)}</p>  
   
             <button onClick={() => handleDeleteIncident(incident.id)} type="button">
-              <FiTrash2 size={20} color="#A8A8B3"/>
+              <FiTrash2 size={20} color="#E02041"/>
             </button>
           </li>
         ))}
