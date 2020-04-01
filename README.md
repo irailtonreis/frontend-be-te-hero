@@ -9,12 +9,6 @@
   </a>
 </p>
 
-> Front-End Be The Hero
-
-### 🏠 [Homepage](https://github.com/irailtonreis/frontend-be-te-hero)
-
-### ✨ [Demo](https://github.com/irailtonreis/frontend-be-te-hero)
-
 ## Install
 
 ```sh
@@ -48,11 +42,11 @@ npm run start
 <img src='/images/profile.gif' width='800px'>
 
 ## Mobile - Acesse a versão mobile
-[https://github.com/irailtonreis/mobile-be-te-hero](https://github.com/irailtonreis/mobile-be-te-hero)
+[https://github.com/irailtonreis/mobile-be-the-hero](https://github.com/irailtonreis/mobile-be-the-hero)
 
 ## 📝 License
 Copyright © 2020 [irailton](https://github.com/irailtonreis).<br />
-This project is [MIT](https://github.com/irailtonreis/frontend-be-te-hero/licence) licensed.
+This project is [MIT](https://github.com/irailtonreis/frontend-be-the-hero/licence) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
