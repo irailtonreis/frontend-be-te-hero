@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as Yup from 'yup';
 import { Link, useHistory} from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -8,9 +9,19 @@ import api from '../../services/api';
 
 import LogoImg from '../../assets/logo.svg';
 
+const schema = Yup.object().shape({
+  name: Yup.string().required('Nome é obrigatório'),
+  email: Yup.string()
+    .email('Insira um e-mail válido')
+    .required('O e-mail é obrigatório'),
+  password: Yup.string().required('A senha é obrigatória'),
+  whatsapp: Yup.string().required('Whatsap é obrigatório').min(10).max(11, 'máximo 11')
+});
+
 export default function Register(){
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [whatsapp, setWhatsap] = useState('');
   const [city, setCity] = useState('');
   const [uf, setUf] = useState('');
@@ -20,9 +31,10 @@ export default function Register(){
  async function handleRegister(e){
     e.preventDefault(); 
     const data = {
-      name,
+       name,
        email,
-       whatsapp, 
+       whatsapp,
+       password,
        city, 
        uf
     }    
@@ -30,7 +42,7 @@ export default function Register(){
     try {
       const response = await api.post('ongs', data);
 
-      alert(`Seu ID de acesso ${response.data.id}`); 
+      alert(`Ong ${response.data.name} cadastrada com sucesso!`); 
 
       history.push('/');
       
@@ -53,7 +65,7 @@ export default function Register(){
         <FiArrowLeft  size={16} color="#E02041"/>
         Já tenho cadastro</Link>
         </section>
-        <form onSubmit={handleRegister}>
+        <form schema={schema} onSubmit={handleRegister}>
           <input placeholder="Nome da ONG"
           value={name} 
           onChange={e => setName(e.target.value)}
@@ -62,7 +74,11 @@ export default function Register(){
            value={email} 
            onChange={e => setEmail(e.target.value)}
           />
-          <input placeholder="whatsapp"
+          <input type="password" placeholder="senha"
+          value={password} 
+          onChange={e => setPassword(e.target.value)}
+          />
+           <input placeholder="whatsapp"
           value={whatsapp} 
           onChange={e => setWhatsap(e.target.value)}
           />
