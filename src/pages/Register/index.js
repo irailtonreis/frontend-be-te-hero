@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { Link, useHistory} from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import { useFormik } from 'formik';
+
 
 import './styles.css';
 
@@ -9,14 +11,13 @@ import api from '../../services/api';
 
 import LogoImg from '../../assets/logo.svg';
 
-const schema = Yup.object().shape({
-  name: Yup.string().required('Nome é obrigatório'),
-  email: Yup.string()
-    .email('Insira um e-mail válido')
-    .required('O e-mail é obrigatório'),
-  password: Yup.string().required('A senha é obrigatória'),
-  whatsapp: Yup.string().required('Whatsap é obrigatório').min(10).max(11, 'máximo 11')
+const validationSchema = Yup.object({
+  name: Yup.string().required("O Campo nome é requerido"),
+  email: Yup.string().email("Deve ser formato de e-mail").required("O Campo email é requerido"),
+  password: Yup.string().min(6, "minímo 6 caracteres").required("O Campo senha é requerido"),
+  whatsapp: Yup.number().min(9, "mínimo 9 caracteres").required("O Campo whatsapp é requerido"),
 });
+
 
 export default function Register(){
   const [name, setName] = useState('');
@@ -28,6 +29,18 @@ export default function Register(){
 
   const history = useHistory();
   
+  const { handleSubmit, values, errors } = useFormik({
+    initialValues: {
+      name: "",
+      lastName: ""
+    },
+    validationSchema,
+    onSubmit(values) {
+      console.log(values);
+    }
+  });
+
+
  async function handleRegister(e){
     e.preventDefault(); 
     const data = {
@@ -60,29 +73,41 @@ export default function Register(){
         <h1>Cadastro</h1>
         <p>Faça seu cadastro, entre na plataforma e ajude as pessoas a pessoas a encontrarem casos na sua ONG</p>
 
-
         <Link className="back-link" to="/">
         <FiArrowLeft  size={16} color="#E02041"/>
         Já tenho cadastro</Link>
         </section>
-        <form schema={schema} onSubmit={handleRegister}>
+
+
+        <form onSubmit={handleSubmit}>
+          <div>
           <input placeholder="Nome da ONG"
-          value={name} 
+          name="firstName" 
+          values={values.name}
           onChange={e => setName(e.target.value)}
           />
+           {errors.name ? errors.name : null}
+          </div>
+          <div>
           <input type="email" placeholder="E-mail"
-           value={email} 
-           onChange={e => setEmail(e.target.value)}
+          values={values.email}
+          onChange={e => setEmail(e.target.value)}
           />
+          {errors.email ? errors.email : null}
+          </div>
+          <div>
           <input type="password" placeholder="senha"
-          value={password} 
+          values={values.password}
           onChange={e => setPassword(e.target.value)}
-          />
+          />{errors.password ? errors.password : null}
+          </div>
+          <div>
            <input placeholder="whatsapp"
-          value={whatsapp} 
+          values={values.whatsapp}
           onChange={e => setWhatsap(e.target.value)}
           />
-
+          {errors.whatsapp ? errors.whatsapp : null}
+          </div>
           <div className="div input-group">
           <input placeholder="Cidade"
           value={city} 
@@ -96,6 +121,7 @@ export default function Register(){
 
           <button className="button" type="submit">Cadastrar</button>
         </form>
+
       </div>
     </div>
     )
