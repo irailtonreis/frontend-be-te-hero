@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -11,59 +11,34 @@ import api from '../../services/api';
 import LogoImg from '../../assets/logo.svg';
 
 export default function Register(){
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [whatsapp, setWhatsap] = useState('');
-  const [city, setCity] = useState('');
-  const [uf, setUf] = useState('');
+ 
 
   const history = useHistory();
   
   const initialValues = {
-   name,
-   email,
-   password,
-   whatsapp,
-   city,
-   uf
+   name: "",
+   email: "",
+   password: "",
+   whatsapp: "",
+   city: "",
+   uf: ""
   }
 
-
-  const handleSubmit  = values => {
-    setName(values.name)
-    setEmail(values.email)
-    setPassword(values.password)
-    setWhatsap(values.whatsapp)
-    setCity(values.city)
-    setUf(values.uf)
-    handleRegister();
+  const handleSubmit  = data => {
+    handleRegister(data)
   }
 
+ async function handleRegister(data){
+    try {
+      const response = await api.post('ongs', data);
 
- async function handleRegister(e){
-     
-    const data = {
-       name,
-       email,
-       whatsapp,
-       password,
-       city, 
-       uf
-    }    
+      alert(`Ong ${response.data.name} cadastrada com sucesso!`); 
 
-    console.log(data)
-
-    // try {
-    //   const response = await api.post('ongs', data);
-
-    //   alert(`Ong ${response.data.name} cadastrada com sucesso!`); 
-
-    //   history.push('/');
+      history.push('/');
       
-    // } catch (error) {
-    //   alert('Erro no cadastro, tente novamente.');
-    // }
+    } catch (error) {
+      alert('Erro no cadastro, tente novamente.');
+    }
   
   }
 

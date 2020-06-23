@@ -37,7 +37,7 @@ const SignUp = ({handleSubmit, initialValues }) => (
           <ErrorMessage component="span" name="whatsapp"/>
           </div>
           <div className="div input-group"> 
-          <Field placeholder="Cidade" name="cidade"/>
+          <Field placeholder="Cidade" name="city"/>
           <Field placeholder="UF" name="uf" style={{width: 80}}/> 
           </div>
           <button className="button" type="submit">Cadastrar</button>
