@@ -1,0 +1,9 @@
+
+.field-input select{
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  color: #5d5d63;
+  border-color: #737380;
+  border-radius: 4px;
+}

@@ -30,11 +30,12 @@ export default function Register(){
 
  async function handleRegister(data){
     try {
-      const response = await api.post('ongs', data);
+      console.log(data)
+      // const response = await api.post('ongs', data);
 
-      alert(`Ong ${response.data.name} cadastrada com sucesso!`); 
+      // alert(`Ong ${response.data.name} cadastrada com sucesso!`); 
 
-      history.push('/');
+      // history.push('/');
       
     } catch (error) {
       alert('Erro no cadastro, tente novamente.');
@@ -44,7 +45,7 @@ export default function Register(){
 
   return (
     <div className="div register-container">
-      <div className="div content">
+      <div className="content">
         <section>
         <img src={LogoImg}  alt="Be The Hero"/>
         <h1>Cadastro</h1>
@@ -54,7 +55,7 @@ export default function Register(){
         <FiArrowLeft  size={16} color="#E02041"/>
         Já tenho cadastro</Link>
         </section>
-          <SignIn handleSubmit={handleSubmit} initialValues={initialValues} />
+        <SignIn handleSubmit={handleSubmit} initialValues={initialValues} />
 
       </div>
     </div>

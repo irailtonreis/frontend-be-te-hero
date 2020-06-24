@@ -1,24 +1,64 @@
-import React  from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect }  from 'react';
 import * as Yup from 'yup';
+import axios from 'axios';
+import { Formik, Form, Field, ErrorMessage, FormikHandlers } from 'formik';
 
-import { Formik, Form, Field, ErrorMessage, } from 'formik';
-
-import '../../pages/Register/styles.css';
+import './styles.css';
 
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("O Campo nome é requerido"),
-  email: Yup.string().email("Deve ser formato de e-mail").required("O Campo email é requerido"),
-  password: Yup.string().min(6, "minímo 6 caracteres").required("O Campo senha é requerido"),
-  whatsapp: Yup.string().min(9, "mínimo 9 caracteres").max(11, 'máximo 11 caracteres').required("O Campo whatsapp é requerido"),
+  name: Yup.string().required("O campo nome é requerido"),
+  email: Yup.string().email("Deve ser formato de e-mail").required("O campo email é requerido"),
+  password: Yup.string().min(6, "minímo 6 caracteres").required("O campo senha é requerido"),
+  whatsapp: Yup.string().min(9, "mínimo 9 caracteres").max(11, 'máximo 11 caracteres').required("O campo whatsapp é requerido"),
+  city: Yup.string().required("A cidade é requerida"),
+  uf: Yup.string().required("A uf é requerida"),
 });
 
 
+const SignUp = ({handleSubmit, initialValues }) => {
+  const [ufs, setUfs ] = useState([]);
+  const [cities, setCities ] = useState([]);
 
-const SignUp = ({handleSubmit, initialValues }) => (
+  const [selectedUf, setSelectedUf] = useState("0");
+  const [selectedCity, setSelectedCity] = useState("0");
 
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+
+
+
+  useEffect(() => {
+    axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then(response => {
+      const ufInitials = response.data.map(uf => uf.sigla);
+      setUfs(ufInitials);
+    })
+  }, []);
+
+
+  useEffect(() => {
+    if(selectedUf === '0'){
+      return;
+    }
+
+    axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`).then(response => {
+      const cityInitials = response.data.map(city => city.nome);
+      setCities(cityInitials);
+    })
+  }, [selectedUf]);
+ 
+  function handleSelectedUf(event){
+    const uf = event.target.value;
+    console.log(event.target.value);
+    setSelectedUf(uf);
+  }
+  
+  function handleSelectedCity(event){
+    const city = event.target.value;
+    console.log(event.target.value);
+    setSelectedCity(city);
+  }
+  
+  return(
+    <Formik initialValues={initialValues}  onSubmit={handleSubmit} validationSchema={validationSchema}>
       <Form>
           <div className="field-input">
           <Field placeholder="Nome da ONG" name="name" />
@@ -29,27 +69,42 @@ const SignUp = ({handleSubmit, initialValues }) => (
           <ErrorMessage component="span" name="email"/>
           </div>
           <div className="field-input">
-          <Field type="password" placeholder="senha" name="password"/>
+          <Field type="password" placeholder="Senha" name="password"/>
           <ErrorMessage component="span" name="password"/>
           </div>
           <div className="field-input">
-          <Field placeholder="whatsapp" name="whatsapp"/>
+          <Field placeholder="Whatsapp" name="whatsapp"/>
           <ErrorMessage component="span" name="whatsapp"/>
           </div>
-          <div className="div input-group"> 
-          <Field placeholder="Cidade" name="city"/>
-          <Field placeholder="UF" name="uf" style={{width: 80}}/> 
+          <div className="field-input"> 
+          <Field name="uf" as="select" placeholder="uf"
+           value={selectedUf} 
+           onChange={handleSelectedUf}
+           >
+          <option value="0">Seleciona uma UF</option>            
+          {ufs.map(uf => (
+              <option key={uf} value={uf}>{uf}</option>
+            ) )}
+          </Field>
+          <ErrorMessage component="span" name="uf"/>
+
           </div>
+          <div className="field-input">
+          <Field name="city" as="select" placeholder="city"
+           value={selectedCity} onChange={handleSelectedCity}
+           >
+          <option value="0">Seleciona uma cidade</option>            
+            {cities.map(city => (
+              <option key={city} value={city}>{city}</option>
+            ) )}
+          </Field>
+          <ErrorMessage component="span" name="city"/>
+          </div> 
           <button className="button" type="submit">Cadastrar</button>
         </Form>
       </Formik>
-
+      
 )
-
-SignUp.prototype = {
-  handleSubmit: PropTypes.func.isRequired,
-  initialValues: PropTypes.object.isRequired,
 }
 
 export default SignUp;
-
