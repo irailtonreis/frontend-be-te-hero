@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  background: #E02041;
+
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.content ul {
+  display: flex;
+}
+.content ul li {
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 10px;
+}
