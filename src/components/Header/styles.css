@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   background: #E02041;
-
 }
 .content {
   display: flex;
@@ -19,4 +18,8 @@
   list-style: none;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.content ul .link {
+  text-decoration: none;
 }
