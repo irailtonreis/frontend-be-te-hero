@@ -12,25 +12,26 @@ function Profile(){
   const [incidents, setIncidents] = useState([]);
 
   const history = useHistory();
-  const ongId = localStorage.getItem('ongId');
+
   const ongName = localStorage.getItem('ongName');
+  const ongToken = localStorage.getItem('ongToken');
 
   useEffect(()=> {
     api.get('profile', {
       headers: {
-        Authorization: ongId,
+        Authorization: ongToken,
       }
     }).then(response => {
       setIncidents(response.data);
     })
 
-  }, [ongId]);
+  }, [ongToken]);
 
  async function handleDeleteIncident(id){
     try {
       await api.delete(`incidents/${id}`, {
         headers: {
-          Authorization: ongId,
+          Authorization: ongToken,
         }
       });
       setIncidents(incidents.filter(incident => incident.id !== id));

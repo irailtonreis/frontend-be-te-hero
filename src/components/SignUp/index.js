@@ -1,7 +1,6 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import * as Yup from 'yup';
-import axios from 'axios';
-import { Formik, Form, Field, ErrorMessage, FormikHandlers } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import './styles.css';
 
@@ -17,45 +16,43 @@ const validationSchema = Yup.object({
 
 
 const SignUp = ({handleSubmit, initialValues }) => {
-  const [ufs, setUfs ] = useState([]);
-  const [cities, setCities ] = useState([]);
+  // const [ufs, setUfs ] = useState([]);
+  // const [cities, setCities ] = useState([]);
 
-  const [selectedUf, setSelectedUf] = useState("0");
-  const [selectedCity, setSelectedCity] = useState("0");
-
-
+  // const [selectedUf, setSelectedUf] = useState("0");
+  // const [selectedCity, setSelectedCity] = useState("0");
 
 
-  useEffect(() => {
-    axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then(response => {
-      const ufInitials = response.data.map(uf => uf.sigla);
-      setUfs(ufInitials);
-    })
-  }, []);
+  // useEffect(() => {
+  //   axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then(response => {
+  //     const ufInitials = response.data.map(uf => uf.sigla);
+  //     setUfs(ufInitials);
+  //   })
+  // }, []);
 
 
-  useEffect(() => {
-    if(selectedUf === '0'){
-      return;
-    }
+  // useEffect(() => {
+  //   if(selectedUf === '0'){
+  //     return;
+  //   }
 
-    axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`).then(response => {
-      const cityInitials = response.data.map(city => city.nome);
-      setCities(cityInitials);
-    })
-  }, [selectedUf]);
+  //   axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`).then(response => {
+  //     const cityInitials = response.data.map(city => city.nome);
+  //     setCities(cityInitials);
+  //   })
+  // }, [selectedUf]);
  
-  function handleSelectedUf(event){
-    const uf = event.target.value;
-    console.log(event.target.value);
-    setSelectedUf(uf);
-  }
+  // function handleSelectedUf(event){
+  //   const uf = event.target.value;
+  //   console.log(event.target.value);
+  //   setSelectedUf(uf);
+  // }
   
-  function handleSelectedCity(event){
-    const city = event.target.value;
-    console.log(event.target.value);
-    setSelectedCity(city);
-  }
+  // function handleSelectedCity(event){
+  //   const city = event.target.value;
+  //   console.log(event.target.value);
+  //   setSelectedCity(city);
+  // }
   
   return(
     <Formik initialValues={initialValues}  onSubmit={handleSubmit} validationSchema={validationSchema}>
@@ -77,27 +74,11 @@ const SignUp = ({handleSubmit, initialValues }) => {
           <ErrorMessage component="span" name="whatsapp"/>
           </div>
           <div className="field-input"> 
-          <Field name="uf" as="select" placeholder="uf"
-           value={selectedUf} 
-           onChange={handleSelectedUf}
-           >
-          <option value="0">Seleciona uma UF</option>            
-          {ufs.map(uf => (
-              <option key={uf} value={uf}>{uf}</option>
-            ) )}
-          </Field>
+          <Field name="uf" placeholder="uf" />
           <ErrorMessage component="span" name="uf"/>
-
           </div>
           <div className="field-input">
-          <Field name="city" as="select" placeholder="city"
-           value={selectedCity} onChange={handleSelectedCity}
-           >
-          <option value="0">Seleciona uma cidade</option>            
-            {cities.map(city => (
-              <option key={city} value={city}>{city}</option>
-            ) )}
-          </Field>
+          <Field name="city" placeholder="city"/>
           <ErrorMessage component="span" name="city"/>
           </div> 
           <button className="button" type="submit">Cadastrar</button>
