@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
 .container {
   width: 100%;
   background: #E02041;
@@ -18,8 +20,26 @@
   list-style: none;
   padding: 10px;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 10px;
+ 
 }
 
 .content ul .link {
   text-decoration: none;
+  color: #FFF;
+  padding: 5px;
+}
+
+.content ul .link:hover {
+  border-bottom: 2px solid #FFF;
+}
+
+@media(max-width: 600px){
+  .content {
+    flex-direction: column;
+    margin-bottom: 350px;
+  }
+
 }

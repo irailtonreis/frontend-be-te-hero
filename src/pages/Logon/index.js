@@ -36,9 +36,9 @@ function Logon(){
 
   }
   return(
-    <div className="div logon-container">
+    <div className="logon-container">
       <section className="form">
-        <img src={LogoImg}  alt="Be The Hero"/>
+        {/* <img src={LogoImg}  alt="Be The Hero"/> */}
       <form onSubmit={handleLogin}>
         <h1>Faça seu Logon</h1>
 

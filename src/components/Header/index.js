@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import { Link } from 'react-router-dom';
 
+import logo from '../../assets/logo.svg';
 
 export default function Header(){
 
@@ -9,10 +10,10 @@ export default function Header(){
     <div className="container">
       <div className="content">
 
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
       <div className="nav">
-        <h1>Be The Hero</h1>
-      </div>
-      <div className="logo">
         <ul>
          <li><Link className="link" to="/">Home</Link></li>
          <li><Link className="link" to="incidents">Casos</Link></li>
