@@ -7,7 +7,7 @@ export const Navigation = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 100px 0;
+  padding: 0px 10px 0;
   height: 85px;
   margin-bottom: 60px;
   background: #E02041;
@@ -15,7 +15,6 @@ export const Navigation = styled.header`
   .logo  {
     padding-top: 33px;
     display: flex;
-    flex-direction: column;
     clear: both;
     padding-bottom: 30px;
     text-decoration: none;
@@ -33,9 +32,7 @@ export const Navigation = styled.header`
       
       
   }
-  .gray {
-    color: #ccc;
-  }
+ 
   .logo:hover {
     opacity: 8;
   }
@@ -50,15 +47,22 @@ export const Navigation = styled.header`
       justify-content: space-between;
     }
     li {
+      color:#FFF;
       margin: 0 15px;
       justify-content: space-between;
-      font-size: 1em;
+      font-size: 1.2em;
       list-style: none;
       padding: 10px;
       margin-bottom: 10px;
       text-transform: uppercase;
       font-weight: bold;
       line-height: 10px;
+      transition: all 0.4s;
+      &:hover{
+        border-bottom: 2px solid #000;
+        opacity: 0.7;
+        color: #000;
+      }
     }
     a {
       font-size: 1em;
@@ -68,18 +72,31 @@ export const Navigation = styled.header`
       }
     }
     a.active {
-      color: #222;
+      color: #000;
     }
   }
 
   @media only screen and (max-width: 800px) {
-    padding: 0px;
+    flex-direction:column;
+    justify-content: flex-start;
+    height: 140px;
+
+    nav {
+      margin-top: 10px;
+   
+    }
+
     .logo {
-      padding-left: 15px;
-      padding-top: 0px !important;
+      padding-top: 0;
+      padding-bottom: 0;
+
     }
   }
+ 
   @media only screen and (max-width: 600px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height: auto;
     min-height: 50px;
     display: block;
@@ -87,9 +104,6 @@ export const Navigation = styled.header`
     .logo {
       width: 100%;
       display: block;
-      padding-top: 20px;
-      margin: 0px;
-      margin-left: -5px;
       a {
         padding: 20px 0px;
       }
@@ -106,6 +120,7 @@ export const Navigation = styled.header`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: flex-end;
       flex-wrap: wrap;
 
       overflow: hidden;
@@ -120,8 +135,10 @@ export const Navigation = styled.header`
       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
       &.is-expanded {
+        width: 100%;
         overflow: hidden;
-        max-height: 500px; /* approximate max height */
+        max-height: 500px;
+        /* approximate max height */
         -moz-transition-duration: 0.4s;
         -webkit-transition-duration: 0.4s;
         -o-transition-duration: 0.4s;
@@ -132,7 +149,7 @@ export const Navigation = styled.header`
         transition-timing-function: ease-in;
       }
       li {
-        padding: 15px 10px;
+        padding: 13px 0 9px;
         margin: 0px 0px;
         width: 100%;
       }

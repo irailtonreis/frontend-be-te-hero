@@ -6,7 +6,7 @@ import logo from '../../assets/logo.svg';
 import { Navigation } from './styles';
 
 export default function Nav(){
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   function handleToggle(e) {
     e.preventDefault();
     setIsExpanded(!isExpanded);
@@ -30,15 +30,15 @@ export default function Nav(){
             <li>Home</li>
           </NavLink>
           <NavLink activeClassName="active" to="/about">
-            <li>about</li>
+            <li>Sobre</li>
           </NavLink>
-          <NavLink activeClassName="active" to="/contact">
+          <NavLink activeClassName="active" to="/incidents">
             <li>Casos</li>
           </NavLink>
-          <NavLink activeClassName="active" to="/contact">
+          <NavLink activeClassName="active" to="/register">
             <li>Cadastro</li>
           </NavLink>
-          <NavLink activeClassName="active" to="/contact">
+          <NavLink activeClassName="active" to="/">
             <li>Login</li>
           </NavLink>
         </ul>
