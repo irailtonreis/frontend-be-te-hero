@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Navigation = styled.header`
+
   max-width: 100%;
   border-bottom: 2px solid #222;
   z-index: 1;
@@ -9,8 +10,8 @@ export const Navigation = styled.header`
   align-items: center;
   padding: 0px 10px 0;
   height: 85px;
-  margin-bottom: 60px;
-  background: #E02041;
+  background: #F74657;
+  
 
   .logo  {
     padding-top: 33px;
@@ -47,7 +48,7 @@ export const Navigation = styled.header`
       justify-content: space-between;
     }
     li {
-      color:#FFF;
+      color:#1F2127;
       margin: 0 15px;
       justify-content: space-between;
       font-size: 1.2em;
@@ -59,21 +60,26 @@ export const Navigation = styled.header`
       line-height: 10px;
       transition: all 0.4s;
       &:hover{
-        border-bottom: 2px solid #000;
+        border-bottom: 2px solid #FFF;
         opacity: 0.7;
-        color: #000;
+        color: #FFF;
       }
     }
+  
     a {
+      
       font-size: 1em;
       text-decoration: none;
       .active {
-        color: tomato;
+        color: #FFF;
       }
     }
     a.active {
-      color: #000;
+      color: #FFF;
+
+     
     }
+    
   }
 
   @media only screen and (max-width: 800px) {
