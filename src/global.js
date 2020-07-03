@@ -58,7 +58,7 @@ form textarea {
   background: #F74657;
   border: 0;
   border-radius: 8px;
-  color: #FFF;
+  color: #000;
   font-weight: 700;
   margin-top: 16px;
   display: inline-block;
@@ -70,6 +70,7 @@ form textarea {
 
 .button:hover{
   filter: brightness(90%);
+  color: #FFF;
 }
 
 

@@ -1,9 +1,9 @@
 .register-container{
+  margin-top: 100px;
   width: 100%;
   max-width: 1120px;
-  height: 100vh;
+  height: 80vh;
   margin: 0 auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,19 +12,19 @@
 
 .register-container .content{
   width: 100%;
-  padding: 96px;
+  padding: 50px;
   background: #f0f0f5;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-top: 100px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .register-container .content section{
   width: 100%;
-  max-width: 380px;
+  max-width: 285px;
 }
 
 
@@ -46,6 +46,9 @@
 
 .register-container .content form input{
   margin-top: 8px;
+}
+.register-container .content form .back-link{
+  color: black;
 }
 
 

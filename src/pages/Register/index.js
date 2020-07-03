@@ -8,7 +8,7 @@ import './styles.css';
 
 import api from '../../services/api';
 
-import LogoImg from '../../assets/logo.svg';
+import dogImg from '../../assets/dog.svg';
 
 export default function Register(){
  
@@ -46,7 +46,7 @@ export default function Register(){
     <div className="register-container">
       <div className="content">
         <section>
-        <img src={LogoImg}  alt="Be The Hero"/>
+        <img src={dogImg}  alt="Be The Hero"/>
         <h1>Cadastro</h1>
         <p>Faça seu cadastro, entre na plataforma e ajude as pessoas a pessoas a encontrarem casos na sua ONG</p>
         <Link className="back-link" to="/">

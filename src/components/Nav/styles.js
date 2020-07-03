@@ -11,6 +11,7 @@ export const Navigation = styled.header`
   padding: 0px 10px 0;
   height: 85px;
   background: #F74657;
+  margin-bottom: 100px;
   
 
   .logo  {
@@ -48,7 +49,7 @@ export const Navigation = styled.header`
       justify-content: space-between;
     }
     li {
-      color:#1F2127;
+      color:#FFF;
       margin: 0 15px;
       justify-content: space-between;
       font-size: 1.2em;
@@ -72,6 +73,10 @@ export const Navigation = styled.header`
       font-size: 1em;
       text-decoration: none;
       color:#000;
+
+      &:hover{
+        color:#FFF;
+      }
     }
     a.active {
       color: #FFF;
