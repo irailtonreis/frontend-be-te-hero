@@ -26,21 +26,21 @@ export default function Nav(){
           onClick={e => handleToggle(e)}
         ><FaAlignJustify /></i>
         <ul className={`collapsed ${isExpanded ? "is-expanded" : ""}`}>
-          <NavLink activeClassName="active" to="/">
-            <li>Home</li>
-          </NavLink>
-          <NavLink activeClassName="active" to="/about">
-            <li>Sobre</li>
-          </NavLink>
-          <NavLink activeClassName="active" to="/incidents">
-            <li>Casos</li>
-          </NavLink>
-          <NavLink activeClassName="active" to="/register">
-            <li>Cadastro</li>
-          </NavLink>
-          <NavLink activeClassName="active" to="/">
-            <li>Login</li>
-          </NavLink>
+          <li>
+          <NavLink activeClassName="active" exact to="/">Home</NavLink>
+          </li>
+          <li>
+          <NavLink activeClassName="active" to="/about">Sobre</NavLink>
+          </li>
+          <li>
+          <NavLink activeClassName="active" to="/incidents">Casos</NavLink>
+          </li>
+          <li>
+          <NavLink activeClassName="active" to="/register">Cadastro</NavLink>
+          </li>
+          <li>
+          <NavLink activeClassName="active" to="/logon">Login</NavLink>
+          </li>
         </ul>
       </nav>
     </Navigation>

@@ -1,4 +1,11 @@
+import { createGlobalStyle } from 'styled-components';
+
+
+import 'react-toastify/dist/ReactToastify.css';
+
+export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+  
 
 *{
   margin: 0;
@@ -13,10 +20,14 @@ body{
   -webkit-font-smoothing: antialiased;
 
 }
+h1,h1,h3,h4,h5,h6{
+  font: 700 18px Roboto, sans-serif;
+}
 
 input, button, textarea{
   font: 400 18px Roboto, sans-serif;
 }
+
 button{
   cursor: pointer;
 }
@@ -67,17 +78,23 @@ form textarea {
   display: flex;
   align-items: center;
   margin-top: 40px;
-  color: #F74657;
+  color: #FFF;
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.2s;
  }
- 
  .back-link svg{
    margin-right: 8px;
  }
  
  .back-link:hover{
-   opacity: 0.8;
- }
+   opacity: 0.6;
+   color: #F74657;
+  }
+
+  .back-link svg:hover{
+    color: #F74657;
+  }
+`;
+

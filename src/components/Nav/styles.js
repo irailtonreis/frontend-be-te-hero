@@ -59,6 +59,8 @@ export const Navigation = styled.header`
       font-weight: bold;
       line-height: 10px;
       transition: all 0.4s;
+      display: flex;
+      justify-content: flex-end;
       &:hover{
         border-bottom: 2px solid #FFF;
         opacity: 0.7;
@@ -67,17 +69,12 @@ export const Navigation = styled.header`
     }
   
     a {
-      
       font-size: 1em;
       text-decoration: none;
-      .active {
-        color: #FFF;
-      }
+      color:#000;
     }
     a.active {
       color: #FFF;
-
-     
     }
     
   }
