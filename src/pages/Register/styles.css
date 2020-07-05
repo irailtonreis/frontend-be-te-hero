@@ -31,6 +31,7 @@
 .register-container .content section h1{
   margin: 64px 0 32px;
   font-size: 32px;
+  color: #03a4ec;
 }
 
 .register-container .content section p{
@@ -38,6 +39,7 @@
   line-height: 32px;
   color: #737380;
 }
+
 
 .register-container .content form{
   width: 100%;
