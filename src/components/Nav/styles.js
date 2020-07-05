@@ -98,6 +98,9 @@ export const Navigation = styled.header`
       padding-top: 0;
       padding-bottom: 0;
 
+      img{
+        max-width: 150px;
+      }
     }
   }
  
@@ -112,6 +115,10 @@ export const Navigation = styled.header`
     .logo {
       width: 100%;
       display: block;
+
+      img{
+        max-width: 130px;
+      }
       a {
         padding: 20px 0px;
       }
@@ -119,7 +126,7 @@ export const Navigation = styled.header`
     .fa-bars {
       display: inline-block;
       position: absolute;
-      top: 10px;
+      top: 19px;
       right: 10px;
       cursor: pointer;
     }
