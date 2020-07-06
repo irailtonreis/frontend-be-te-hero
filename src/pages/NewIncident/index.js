@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import LogoImg from '../../assets/logo.svg';
-
-import './styles.css';
+import { Container, Content } from './styles';
 
 import api from '../../services/api';
 
@@ -43,10 +41,9 @@ export default function NewIncident(){
     }
   }
   return(
-    <div className="new-incident-container">
-    <div className="content"> 
+    <Container>
+    <Content> 
       <section>
-      <img src={LogoImg}  alt="Be The Hero"/>
       <h1>Cadastrar novo caso</h1>
       <p>Descresva o caso detalhadamente para encontrar um herói para resolvir isso.</p>
       <Link className="back-link" to="/profile">
@@ -73,8 +70,8 @@ export default function NewIncident(){
         <button className="button" type="submit">Cadastrar</button>
       </form>
 
-    </div>
-  </div>
+    </Content>
+  </Container>
   )
 }
 

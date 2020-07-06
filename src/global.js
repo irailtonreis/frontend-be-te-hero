@@ -22,6 +22,7 @@ body{
 }
 h1,h1,h3,h4,h5,h6{
   font: 700 18px Roboto, sans-serif;
+  color: #03a4ec;
 }
 
 input, button, textarea{
@@ -79,7 +80,7 @@ form textarea {
   display: flex;
   align-items: center;
   margin-top: 40px;
-  color: #FFF;
+  color: #03a4ec;
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
@@ -87,6 +88,7 @@ form textarea {
  }
  .back-link svg{
    margin-right: 8px;
+   color: #03a4ec;
  }
  
  .back-link:hover{

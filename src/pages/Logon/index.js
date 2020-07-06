@@ -3,7 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FiLogIn } from 'react-icons/fi';
 
-import './styles.css';
+import { Container } from './styles';
+
 import api from '../../services/api';
 
 function Logon(){
@@ -34,7 +35,7 @@ function Logon(){
 
   }
   return(
-    <div className="logon-container">
+    <Container className="logon-container">
       <section className="form">
       <form onSubmit={handleLogin}>
         <h1>Faça seu Logon</h1>
@@ -51,13 +52,13 @@ function Logon(){
         <button className="button"  type="submit">Entrar</button>
 
         <Link className="back-link" to="/register">
-        <FiLogIn  size={16} color="#FFF"/>
+        <FiLogIn  size={16} color="#03a4ec"/>
         Não tenho cadastro</Link>
 
       </form>
 
       </section>
-    </div>
+    </Container>
   )
 }
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './styles.css';
-
 import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import LogoImg from '../../assets/logo.svg';
+
+import { Container, Content } from './styles';
 
 import api from '../../services/api';
 
@@ -50,7 +50,7 @@ function Profile(){
   }
   return(
     
-    <div className="profile-container">
+    <Container className="profile-container">
       <header>
       <img src={LogoImg}  alt="Be The Hero"/>
       <span>Bem vinda, {ongName}</span>
@@ -61,7 +61,7 @@ function Profile(){
       </header>
       <h1>Casos Cadastrados</h1>
 
-      <ul>
+      <Content>
         {incidents.map(incident => (
             <li key={incident.id}>
             <strong>CASO: </strong>
@@ -78,8 +78,8 @@ function Profile(){
             </button>
           </li>
         ))}
-      </ul>
-    </div>
+      </Content>
+    </Container>
   )
 }
 

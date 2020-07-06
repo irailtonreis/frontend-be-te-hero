@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import './styles.css';
+import { Container } from './styles';
 
 
 const validationSchema = Yup.object({
@@ -55,6 +55,7 @@ const SignUp = ({handleSubmit, initialValues }) => {
   // }
   
   return(
+    <Container>
     <Formik initialValues={initialValues}  onSubmit={handleSubmit} validationSchema={validationSchema}>
       <Form>
           <div className="field-input">
@@ -84,6 +85,7 @@ const SignUp = ({handleSubmit, initialValues }) => {
           <button className="button" type="submit">Cadastrar</button>
         </Form>
       </Formik>
+      </Container>
       
 )
 }
