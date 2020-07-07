@@ -12,7 +12,6 @@ function Profile(){
   const [incidents, setIncidents] = useState([]);
 
   const history = useHistory();
-
   const ongName = localStorage.getItem('ongName');
   const ongToken = localStorage.getItem('ongToken');
 
@@ -22,6 +21,7 @@ function Profile(){
         Authorization: ongToken,
       }
     }).then(response => {
+     
       setIncidents(response.data);
     })
 
@@ -37,7 +37,6 @@ function Profile(){
       setIncidents(incidents.filter(incident => incident.id !== id));
     } catch (error) {
       alert("Erro ao deletar o caso, tente novamente.") 
-      
     }
   }
 
@@ -45,8 +44,6 @@ function Profile(){
     localStorage.clear();
 
     history.push('/');
-
-
   }
   return(
     
@@ -68,7 +65,8 @@ function Profile(){
             <p>{incident.title}</p>  
   
             <strong>DESCRIÇÃO: </strong>
-            <p>{incident.description}</p>  
+            <p>{incident.description}</p> 
+            <img src={incident.foto.url} alt="caso" srcSet={incident.foto.url}/> 
             
             <strong>VALUE: </strong>
             <p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL' }).format(incident.value)}</p>  

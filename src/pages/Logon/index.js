@@ -25,6 +25,7 @@ function Logon(){
 
       localStorage.setItem('ongEmail', response.data.ong.email);
       localStorage.setItem('ongName', response.data.ong.name);
+      localStorage.setItem('ongId', response.data.ong.id);
       localStorage.setItem('ongToken', response.data.token);
 
       history.push('/profile');

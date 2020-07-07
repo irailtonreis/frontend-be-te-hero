@@ -82,6 +82,9 @@ export const Content = styled.ul`
     line-height: 21px;
     font-size: 16px;
     }
+    img{
+      max-width:180px;
+    }
   }
 `;
 

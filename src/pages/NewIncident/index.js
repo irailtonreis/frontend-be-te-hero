@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import { toast } from 'react-toastify';
+
 
 import { Container, Content } from './styles';
 
@@ -13,31 +15,28 @@ export default function NewIncident(){
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
 
-  const ongId = localStorage.getItem('ongId');
-
+  const ongToken = localStorage.getItem('ongToken');
   const history = useHistory(); 
 
-
- async function handleNewIncident(e){
+ async function handleNewIncident(e){  
     e.preventDefault();
-
+    const file_id = 2
     const data = {
        title,
        description,
        value,
+       file_id,
     }
 
     try {
       await api.post('incidents', data, {
         headers: {
-          Authorization: ongId,
+          Authorization: ongToken,
         }
       })
-
       history.push('/profile');
     } catch (error) {
-      
-      alert("Erro ao cadastrar caso, tente novamente");
+      toast.error("Falha ao cadastrar, tente novamente");
     }
   }
   return(
