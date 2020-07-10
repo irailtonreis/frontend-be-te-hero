@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
 
 const Incidents = () => {
   const [incidents, setIncidents] = useState([])
@@ -11,7 +11,6 @@ const Incidents = () => {
       const response = await api.get('incidents');
 
       setIncidents(response.data)
-      console.log(response.data);
     }
    
     loadIncidents()
@@ -19,17 +18,21 @@ const Incidents = () => {
 
   return (
     <Container>
-    <div className="">
-    <ul className="">
-     {incidents.map(incident => (
-       <li>
-         <h2>{incident.title}</h2>
-        <strong>{incident.description}</strong>
-       </li>
-     ))}
-    </ul>
-    </div>
-
+      <Content>
+        {incidents.map(incident => (
+            <li key={incident.id}>
+            <strong>CASO: </strong>
+            <p>{incident.title}</p>  
+  
+            <strong>DESCRIÇÃO: </strong>
+            <p>{incident.description}</p> 
+            <img src={incident.foto.url} alt="caso" srcSet={incident.foto.url}/> 
+            
+            <strong>VALUE: </strong>
+            <p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL' }).format(incident.value)}</p>  
+          </li>
+        ))}
+      </Content>
     </Container>
   );
 }

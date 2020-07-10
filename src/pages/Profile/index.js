@@ -68,7 +68,7 @@ function Profile(){
             <p>{incident.description}</p> 
             <img src={incident.foto.url} alt="caso" srcSet={incident.foto.url}/> 
             
-            <strong>VALUE: </strong>
+            <strong>Valor: </strong>
             <p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL' }).format(incident.value)}</p>  
   
             <button onClick={() => handleDeleteIncident(incident.id)} type="button">

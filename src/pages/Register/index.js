@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import { toast } from 'react-toastify';
+
 
 import SignUp from '../../components/SignUp';
 
@@ -32,12 +34,15 @@ export default function Register(){
     try {
       const response = await api.post('ongs', data);
 
-      alert(`Ong ${response.data.name} cadastrada com sucesso!`); 
+      toast.success(`Ong ${response.data.name} cadastrada com sucesso!`); 
 
-      history.push('/');
+      setTimeout(() => {
+          history.push('/logon');
+      }, 3500);
+     
       
     } catch (error) {
-      alert('Erro no cadastro, tente novamente.');
+      toast.error('Erro no cadastro, tente novamente.');
     }
   
   }

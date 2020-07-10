@@ -11,7 +11,7 @@ export const Navigation = styled.header`
   padding: 0px 10px 0;
   height: 85px;
   background: #F74657;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   
 
   .logo  {
